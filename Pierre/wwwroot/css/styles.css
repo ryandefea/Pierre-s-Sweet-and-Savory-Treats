@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
 div#footer {
   position:fixed;
@@ -29,25 +29,25 @@ body {
   background-size: cover;
   /* background-color: whitesmoke; */
   font-size: 14px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Roboto+Condensed', Courier, monospace;
   color: rgb(23, 22, 22);
 }
 
 h1 {
   font-size: 48px;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Roboto+Condensed', sans-serif;
   color: rgb(90, 44, 44);
 }
 
 h2 {
   font-size: 36px;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Roboto+Condensed', sans-serif;
   color:rgb(6, 46, 46);
 }
 
 h3 {
   font-size: 22px;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: 'Roboto+Condensed', sans-serif;
   color: rgb(90, 44, 44);
 }
 
@@ -85,28 +85,8 @@ a:active{
   border: 0px;
 }
 
-.fancyBtn {
-  background-color:  rgb(6, 46, 46);
-  color: white;
-  padding: 5px;
-  border-radius: 1rem;
-  width: 200px;
-  text-align: center;
-  font-weight: bolder;
-}
 
-.fancyBtn a:link {
-  color: white;
-}
 
-.fancyBtn a:visited {
-  color:white;
-}
 
-.fancyBtn a:hover {
-  color: white;
-}
 
-.fancyBtn a:active {
-  color: white;
-}
+
