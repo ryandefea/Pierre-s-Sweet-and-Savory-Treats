@@ -5,23 +5,23 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using RecipeBox.Models;
+using Pierre.Models;
 
 
-namespace RecipeBox.Controllers
+namespace Pierre.Controllers
 {
-  public class TagsController : Controller
+  public class FlavorsController : Controller
   {
-    private readonly RecipeBoxContext _db;
+    private readonly PierreContext _db;
 
-    public TagsController(RecipeBoxContext db)
+    public FlavorsController(PierreContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      List<Tag> model = _db.Tags.ToList();
+      List<Flavor> model = _db.Flavors.ToList();
       return View(model);
     }
 
@@ -31,78 +31,78 @@ namespace RecipeBox.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Tag tag)
+    public ActionResult Create(Flavor flavor)
     {
-      _db.Tags.Add(tag);
+      _db.Flavors.Add(flavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-        var thisTag = _db.Tags
-            .Include(tag => tag.JoinEntities)
-            .ThenInclude(join => join.Recipe)
-            .FirstOrDefault(tag => tag.TagId == id);
-        return View(thisTag);
+        var thisFlavor = _db.Flavors
+            .Include(flavor => flavor.JoinEntities)
+            .ThenInclude(join => join.Treat)
+            .FirstOrDefault(flavor => flavor.FlavorId == id);
+        return View(thisFlavor);
     }
 
     public ActionResult Edit(int id)
     {
-      var thisTag = _db.Tags.FirstOrDefault(tag => tag.TagId ==id);
-      ViewBag.RecipeId = new SelectList(_db.Recipes, "RecipeId", "RecipeName", "RecipeRating", "RecipeInstruction");
-      return View(thisTag);
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId ==id);
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName", "TreatRating", "TreatInstruction");
+      return View(thisFlavor);
     }
 
     [HttpPost]
-    public ActionResult Edit(Tag tag, int RecipeId)
+    public ActionResult Edit(Flavor flavor, int TreatId)
     {
-      if (RecipeId !=0)
+      if (TreatId !=0)
       {
-        _db.TagRecipe.Add(new TagRecipe() { RecipeId = RecipeId, TagId = tag.TagId });
+        _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId });
       }
-      _db.Entry(tag).State = EntityState.Modified;
+      _db.Entry(flavor).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisTag = _db.Tags.FirstOrDefault(tag => tag.TagId == id);
-      return View(thisTag);
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisTag = _db.Tags.FirstOrDefault(tag => tag.TagId == id);
-      _db.Tags.Remove(thisTag);
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      _db.Flavors.Remove(thisFlavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-     public ActionResult AddRecipe(int id)
+     public ActionResult AddTreat(int id)
     {
-      var thisTag = _db.Tags.FirstOrDefault(tag => tag.TagId == id);
-      ViewBag.RecipeId = new SelectList(_db.Recipes, "RecipeId", "Name");
-      return View(thisTag);
+      var thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "Name");
+      return View(thisFlavor);
     }
 
     [HttpPost]
-    public ActionResult AddRecipe(Tag tag, int RecipeId)
+    public ActionResult AddTreat(Flavor flavor, int TreatId)
     {
-      if (RecipeId !=0)
+      if (TreatId !=0)
       {
-        _db.TagRecipe.Add(new TagRecipe() { RecipeId = RecipeId, TagId = tag.TagId }); 
+        _db.FlavorTreat.Add(new FlavorTreat() { TreatId = TreatId, FlavorId = flavor.FlavorId }); 
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
     }
 
     [HttpPost]
-    public ActionResult DeleteRecipe(int joinId)
+    public ActionResult DeleteTreat(int joinId)
     {
-      var joinEntry = _db.TagRecipe.FirstOrDefault(entry => entry.TagRecipeId == joinId);
-      _db.TagRecipe.Remove(joinEntry);
+      var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+      _db.FlavorTreat.Remove(joinEntry);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
