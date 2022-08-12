@@ -1,18 +1,18 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using RecipeBox.Models;
+using Pierre.Models;
 using System.Threading.Tasks;
-using RecipeBox.ViewModels;
+using Pierre.ViewModels;
 
-namespace RecipeBox.Controllers
+namespace Pierre.Controllers
 {
   public class AccountController : Controller
   {
-    private readonly RecipeBoxContext _db;
+    private readonly PierreContext _db;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RecipeBoxContext db)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, PierreContext db)
     {
       _userManager = userManager;
       _signInManager = signInManager;
