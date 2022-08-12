@@ -1,36 +1,36 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using RecipeBox.Models;
+using Pierre.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace RecipeBox.Controllers
+namespace Pierre.Controllers
 {
-  public class TagRecipeController : Controller
+  public class FlavorTreatController : Controller
   {
-    private readonly RecipeBoxContext _db;
+    private readonly PierreContext _db;
 
-    public TagRecipeController(RecipeBoxContext db)
+    public FlavorTreatController(PierreContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      ViewBag.PageTitle = "View All Tags and Recipes";
-      List<TagRecipe> model = _db.TagRecipe.ToList();
+      ViewBag.PageTitle = "View All Flavors and Treats";
+      List<FlavorTreat> model = _db.FlavorTreat.ToList();
       return View(model);
     }
 
     [HttpPost]
-    public ActionResult Create(TagRecipe tagrecipe)
+    public ActionResult Create(FlavorTreat flavortreat)
     {
-      if (_db.TagRecipe.FirstOrDefault(
-              tr => tr.RecipeId == tagrecipe.RecipeId && 
-                    tr.TagId == tagrecipe.TagId) == null)
+      if (_db.FlavorTreat.FirstOrDefault(
+              tr => tr.TreatId == flavortreat.TreatId && 
+                    tr.FlavorId == flavortreat.FlavorId) == null)
       {
-        _db.TagRecipe.Add(tagrecipe);
+        _db.FlavorTreat.Add(flavortreat);
         _db.SaveChanges();
       }
       return RedirectToAction("Index");
