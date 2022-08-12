@@ -5,8 +5,10 @@
 @using Pierre.Models;
 @model IEnumerable<Pierre.Models.Treat>
 
-<h1>Treats for @User.Identity.Name</h1>
+<div class="container my-4">  
 
+<h1 class="text-center my-4">Treats for @User.Identity.Name</h1>
+<div class="d-flex flex-column align-items-center my-4">
 @if (Model.Any())
 {
   <ul>
@@ -23,3 +25,5 @@ else
 
 <p class="btn btn-outline-warning btn-rounded">@Html.ActionLink("Home", "Index", "Home", "Treats")</p>
 <p class="btn btn-outline-warning btn-rounded">@Html.ActionLink("Add a Treat", "Create", "Treats")</p>
+</div>
+</div>
