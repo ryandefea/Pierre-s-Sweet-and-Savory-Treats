@@ -1,15 +1,15 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace RecipeBox.Models
+namespace Pierre.Models
 {
-  public class RecipeBoxContext : IdentityDbContext<ApplicationUser>
+  public class PierreContext : IdentityDbContext<ApplicationUser>
   {
-    public DbSet<Tag> Tags { get; set; }
-    public DbSet<Recipe> Recipes { get; set; }
-    public DbSet<TagRecipe> TagRecipe { get; set; }
+    public DbSet<Flavor> Flavors { get; set; }
+    public DbSet<Treat> Treats { get; set; }
+    public DbSet<FlavorTreat> FlavorTreat { get; set; }
 
-    public RecipeBoxContext(DbContextOptions options) : base(options) { }
+    public PierreContext(DbContextOptions options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

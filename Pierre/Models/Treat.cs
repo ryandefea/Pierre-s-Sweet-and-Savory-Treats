@@ -1,23 +1,23 @@
 using System.Collections.Generic;
 
 
-namespace RecipeBox.Models
+namespace Pierre.Models
 {
-    public class Recipe
+    public class Treat
     {
-        public Recipe()
+        public Treat()
         {
-            this.JoinEntities = new HashSet<TagRecipe>();
+            this.JoinEntities = new HashSet<FlavorTreat>();
         }
-        public int RecipeId { get; set; }
+        public int TreatId { get; set; }
         public int Rating { get; set; }
         public string Name { get; set; }
         public string Instruction { get; set; }
 
-        // public int TagId { get; set; }
-        public virtual Tag Tag { get; set; }
+        // public int FlavorId { get; set; }
+        public virtual Flavor Flavor { get; set; }
 
         public virtual ApplicationUser User { get; set; }
-        public virtual ICollection<TagRecipe> JoinEntities { get;}
+        public virtual ICollection<FlavorTreat> JoinEntities { get;}
     }
 }
