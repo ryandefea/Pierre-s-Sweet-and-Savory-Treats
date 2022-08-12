@@ -2,14 +2,14 @@ using System.Collections.Generic;
 
 namespace Pierre.Models
 {
-    public class Tag
+    public class Flavor
     {
-        public Tag()
+        public Flavor()
         {
             this.JoinEntities = new HashSet<FlavorTreat>();
         }
 
-        public int TagId { get; set; }
+        public int FlavorId { get; set; }
         public string Name { get; set; }
         public virtual ICollection<FlavorTreat> JoinEntities { get; set; }
     }
