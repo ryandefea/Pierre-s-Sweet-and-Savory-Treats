@@ -2,24 +2,24 @@
   Layout = "_Layout";
 }
 
-@using RecipeBox.Models;
-@model IEnumerable<RecipeBox.Models.Recipe>
+@using Pierre.Models;
+@model IEnumerable<Pierre.Models.Treat>
 
-<h1>Recipes for @User.Identity.Name</h1>
+<h1>Treats for @User.Identity.Name</h1>
 
 @if (Model.Any())
 {
   <ul>
-    @foreach (Recipe recipe in Model)
+    @foreach (Treat treat in Model)
     {
-      <li>@Html.ActionLink($"{recipe.Name}", "Details", new { id = recipe.RecipeId })</li>
+      <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</li>
     }
   </ul>
 } 
 else
 {
-  <h3>No recipes match this search!</h3>
+  <h3>No treats match this search!</h3>
 }
 
-<p class="fancyBtn">@Html.ActionLink("Home", "Index", "Home", "Recipes")</p>
-<p class="fancyBtn">@Html.ActionLink("Add a Recipe", "Create", "Recipes")</p>
+<p class="fancyBtn">@Html.ActionLink("Home", "Index", "Home", "Treats")</p>
+<p class="fancyBtn">@Html.ActionLink("Add a Treat", "Create", "Treats")</p>

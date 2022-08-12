@@ -2,16 +2,16 @@
   Layout = "_Layout";
 }
 
-@model RecipeBox.Models.Tag
+@model RecipeBox.Models.Flavor
 
 <div class="container my-4">
-  <h4 class="text-center">Edit this Category Tag: @Html.DisplayFor(model => model.Name)</h4>
+  <h4 class="text-center">Edit this Flavor: @Html.DisplayFor(model => model.Name)</h4>
   <hr />
 
   <div class="d-flex flex-row justify-content-center m-2">
     @using (Html.BeginForm())
     {
-        @Html.HiddenFor(model => model.TagId)
+        @Html.HiddenFor(model => model.FlavorId)
 
         @Html.Label("Name:", null, new { @class ="mx-2"})
         @Html.TextBoxFor(model => model.Name, null, new { @class ="mx-2"})

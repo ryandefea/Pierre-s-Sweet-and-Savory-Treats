@@ -2,21 +2,21 @@
   Layout = "_Layout";
 }
 
-@using RecipeBox.Models;
-@model RecipeBox.Models.Tag
+@using Pierre.Models;
+@model Pierre.Models.Flavor
 
-<h2>Add a Recipe</h2>
+<h2>Add a Treat</h2>
 
-<h4>Add a Recipe to this Tag: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Add a Treat to this Flavor: @Html.DisplayFor(model => model.Name)</h4>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.TagId)
+    @Html.HiddenFor(model => model.FlavorId)
 
-    @Html.Label("Select Recipe")
-    @Html.DropDownList("RecipeId")
+    @Html.Label("Select Treat")
+    @Html.DropDownList("TreatId")
 
     <input type="submit" value="Save" class="fancyBtn" />
 }
 
-<p class="fancyBtn"">@Html.ActionLink("Back to list", "Index")</p>
+<p class="fancyBtn">@Html.ActionLink("Back to list", "Index")</p>

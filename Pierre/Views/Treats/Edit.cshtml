@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 
-@model RecipeBox.Models.Recipe
+@model Pierre.Models.Treat
 
 <h2>EDIT</h2>
 
@@ -10,21 +10,21 @@
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.RecipeId)
+    @Html.HiddenFor(model => model.TreatId)
 
     @Html.LabelFor(model => model.Name)
     @Html.EditorFor(model => model.Name)
 
-    @Html.LabelFor(model => model.Instruction)
+    @* @Html.LabelFor(model => model.Instruction)
     @Html.TextBoxFor(model => model.Instruction)
 
     @Html.LabelFor(model => model.Rating)
-    @Html.TextBoxFor(model => model.Rating)
+    @Html.TextBoxFor(model => model.Rating) *@
 
-    @Html.Label("Select tag")
-    @Html.DropDownList("TagId")
+    @Html.Label("Select flavor")
+    @Html.DropDownList("FlavorId")
 
     <input type="submit" value="Save" />
 }
 
-<p class="fancyBtn">@Html.ActionLink("Back to list", "Index", "Recipes")</p>
+<p class="fancyBtn">@Html.ActionLink("Back to list", "Index", "Treats")</p>

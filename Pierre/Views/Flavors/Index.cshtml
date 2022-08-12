@@ -2,8 +2,8 @@
   Layout = "_Layout";
 }
 
-@using RecipeBox.Models;
-@model List<RecipeBox.Models.Tag>;
+@using Pierre.Models;
+@model List<Pierre.Models.Flavor>;
 
 <div class="container my-4">
   <h1 class="text-center my-4">TAGS</h1>
@@ -13,18 +13,18 @@
     <div class="d-flex flex-column align-items-start">
       @if (@Model.Count == 0)
       {
-        <h3>No Category Tags have been added yet!</h3>
+        <h3>No Flavors have been added yet!</h3>
       } 
 
 
-        @foreach (Tag tag in Model)
+        @foreach (Flavor flavor in Model)
         {
-          <li>@Html.ActionLink($"{tag.Name}", "Details", new { id = tag.TagId })
+          <li>@Html.ActionLink($"{flavor.Name}", "Details", new { id = flavor.FlavorId })
         </li>
         }
     </div>
     <div class="d-flex flex-row justify-content-center my-4">
-      <p class="fancyBtn mx-3">@Html.ActionLink("Add Category Tag", "Create", "Tags")</p> 
+      <p class="fancyBtn mx-3">@Html.ActionLink("Add Flavor", "Create", "Flavors")</p> 
       <p class="fancyBtn mx-3">@Html.ActionLink("Home", "Index", "Home")</p>
       
     </div>
