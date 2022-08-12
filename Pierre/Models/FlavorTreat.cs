@@ -1,11 +1,11 @@
-namespace RecipeBox.Models
+namespace Pierre.Models
 {
-  public class TagRecipe
+  public class FlavorTreat
   {       
-    public int TagRecipeId { get; set; }
-    public int RecipeId { get; set; }
-    public int TagId { get; set; }
-    public virtual Recipe Recipe { get; set; }
-    public virtual Tag Tag { get; set; }
+    public int FlavorTreatId { get; set; }
+    public int TreatId { get; set; }
+    public int FlavorId { get; set; }
+    public virtual Treat Treat { get; set; }
+    public virtual Flavor Flavor { get; set; }
   }
 }
