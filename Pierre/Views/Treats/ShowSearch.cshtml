@@ -5,9 +5,14 @@
 @using Pierre.Models;
 @model List<Pierre.Models.Treat>;
 <div class="container my-4">
+  <div class="d-flex flex-column align-items-center my-4">
+  <h1 class="text-center">Search Treats</h1>
+  <hr />
+<div class="d-flex flex-row justify-content-center">
 <form action="/Treats/ShowSearch" method="post"> 
-  <label for="searchPhrase">Search Phrase</label>
   <input name="searchPhrase" id="searchPhrase" type="text">
-  <p class="btn btn-outline-warning btn-rounded">Search</p>
+  <input type="submit" value="Search" class="btn btn-outline-warning btn-rounded" /> 
 </form>
+</div>
+</div>
 </div>
