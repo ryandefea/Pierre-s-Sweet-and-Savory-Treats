@@ -7,7 +7,7 @@
 @model LoginViewModel
 
 <div class="container">
-  <h2 class="text-center">Log in with your account</h2>
+  <h1 class="text-center">Log in with your account</h1>
   <hr />
   <div class="d-flex flex-row justify-content-center">
     @using (Html.BeginForm())
@@ -18,7 +18,7 @@
         @Html.LabelFor(m => m.Password)
         @Html.PasswordFor(m => m.Password, new { required="required"})
 
-        <input type="submit" value="Log in" class="fancyBtn" />
+        <input type="submit" value="Log in" class="btn btn-outline-warning btn-rounded" />
     }
   </div>
 </div>
