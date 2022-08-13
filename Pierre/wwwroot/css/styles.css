@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
-div#footer {
+#footer {
   position:fixed;
   bottom:0px;
   left:0px;
@@ -15,6 +15,7 @@ div#footer {
   font-size: 30;
   background-color:rgb(255, 0, 0)
 } 
+
 
 body {
   background-image: 
@@ -49,9 +50,9 @@ a:link {
   color:  rgb(90, 44, 44);
 }
 
-a:visited {
+/* a:visited {
   color:  rgb(90, 44, 44);
-}
+} */
 
 a:hover {
   color:  rgb(90, 44, 44);
@@ -70,6 +71,18 @@ a:active{
   height: 100%;
   border-radius: 1rem;
 }
+
+.nav-item {
+  font-size: 20px;
+}
+
+#home {
+  font-size: 25px;
+  color: rgb(255, 255, 0);
+  text-decoration: none;
+  margin: 0px 8px 0px 0px;
+} 
+
 
 
 
